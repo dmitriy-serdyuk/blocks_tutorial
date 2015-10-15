@@ -49,7 +49,7 @@ def main(save_to, num_epochs):
     for_dropout = VariableFilter(roles=[INPUT], 
         bricks=mlp.linear_transformations[1:])(cg.variables)
     dropout_graph = apply_dropout(cg, for_dropout, 0.5)
-    dropout_graph = apply_dropout(dropout_graph, [x], 0.8)
+    dropout_graph = apply_dropout(dropout_graph, [x], 0.1)
     dropout_cost, dropout_error_rate = dropout_graph.outputs
 
     mnist_train = MNIST(("train",))
